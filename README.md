@@ -8,7 +8,9 @@ MultiJGL project is about developing a general framework for the inference of mu
 ## Install the package
 To install the developer version (status: unreviewed) from github:
 ```r
-library(devtools)
+
+require(devtools)
+require(dplyr)
 devtools::install_github("KontioJuho/multiJGL")
 ``` 
 
@@ -23,7 +25,7 @@ using the providedXenaprep function. and define the grouping variable (AMLgroups
 cytogenetic risk classification (adverse, intermerdiate, favorable). 
 
 ```r
-
+library(multiJGL)
 Xenadata <- multiJGL::Xenaprep("LAML")
 
 Xenadata$clin.molsubtype.mRNA %>% 
@@ -36,9 +38,13 @@ AMLgroups <- AMLtcga$cytgenrisk
 Identify the most frequently mutated genes in AML samples, e.g., by using _maftools_ R package, and
 extract the expression levels (mRNA) of these genes from the downloaded AML dataset: 
 ```r
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("maftools")
 
 library(maftools)
-library(e1071)
+require(e1071)
 #Set path to TCGA LAML MAF file
 laml.maf = system.file('extdata', 'tcga_laml.maf.gz', package = 'maftools')
 laml.clin = system.file('extdata', 'tcga_laml_annot.tsv', package = 'maftools')
@@ -59,7 +65,7 @@ multiJGL::data_check(genes)
 
 library(e1071)
 #It seems that five covariates are left-skewed
-apply(genes, 2, function(x) multiJGL::skewness(x)) %>% 
+apply(genes, 2, function(x) skewness(x)) %>% 
   as.data.frame() %>% 
   filter(. < -1) %>%
   rownames( )  -> skew.genes
