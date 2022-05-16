@@ -13,7 +13,6 @@ require(devtools)
 require(dplyr)
 devtools::install_github("KontioJuho/multiJGL")
 ``` 
-_ Here the usage of MultiJGL framework is demonstrated with real-life gene expression data. All functionalities could be tested and benchmarked also with simulated [examples](). _
 
 
 <!-- USAGE EXAMPLES -->
