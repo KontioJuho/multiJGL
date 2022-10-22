@@ -33,8 +33,7 @@ Xenadata$clin.molsubtype.mRNA %>%
 AMLgroups <- AMLtcga$cytgenrisk
 
 ```
-Identify the most frequently mutated genes in AML samples, e.g., by using _maftools_ R package, and
-extract the expression levels (mRNA) of these genes from the downloaded AML dataset: 
+For simplicity, the networks are estimated only over the most frequently mutated genes among AML samples. Such genes and their expression level measurements over AML samples can be extracted from TCGA data, for example, with the maftools R-package as follows:
 ```r
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
