@@ -20,8 +20,8 @@ devtools::install_github("KontioJuho/multiJGL")
 
 **Joint estimation of cytogenetic risk-group specific gene networks** 
 
-Download clinical, molecular, and  mRNA data
-using the providedXenaprep function. and define the grouping variable (AMLgroups) for this analysis as an individual-level 
+To illustrate the usage of multiJGL package in real-life scenarios, the first step is to download molecular and clinical data from Xenahub.
+This can be done with a built-in Xenaprep function as shown below. We also define the grouping variable (AMLgroups) for this analysis as an individual-level 
 cytogenetic risk classification (adverse, intermerdiate, favorable). 
 
 ```r
