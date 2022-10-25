@@ -1,4 +1,4 @@
-![My Image](workflow.eps)
+![My Image](workflow.png)
 
 MultiJGL project is about developing a general framework for the inference of multi-dependency (linear and nonlinear) networks across multiple sample groups. The current implementation introduces a nonlinear extension of the popular joint graphical lasso (JGL) enabling the identifcation of both linear and nonlinear dependencies between nodes in a hierarchical manner. 
 
